@@ -2,10 +2,10 @@ import parse from "../parser.js";
 import {sample} from "../../data/sample.js";
 import {draw_3} from "../draw.js";
 
-export default function setup_3() {
+export default function setup_3(str=sample) {
   let canvas = document.getElementById("3-mer-canvas");
   let ctx = canvas.getContext("2d");
-  ctx.data = parse(sample, 3);
+  ctx.data = parse(str, 3);
   draw_3(ctx, {y: 0});
 
 

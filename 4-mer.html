@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protein 4-mer Signature</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <p class="title">Protein 4-mer Signature</p>
+        <p class="description">An easy way to visualize k-mer signature of one protein or a group of proteins</p>
+        <div class="upload">
+            <input type="file" id="upload-btn">
+            <label for="upload-btn">
+                <span class="hint">select a FASTA file to start</span>
+            </label>
+        </div>
+    </header>
+    <main class="main">
+        <section class="data-zone 4-mer">
+            <canvas id="4-mer-canvas" width="1600" height="1540"></canvas>
+        </section>
+    </main>
+</div>
+<script type="module" src="js/4-mer.js"></script>
+</body>
+</html>

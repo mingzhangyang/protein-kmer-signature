@@ -19,8 +19,8 @@ export default class Counter {
   sorted(n=-1) {
     let arr = Array.from(this.data.entries());
     if (n !== 1 || n !== -1) {
-      console.error("invalid argument for sort, 1 for ascending, -1 for descending");
-      console.log("default value -1 is taken");
+      // console.error("invalid argument for sort, 1 for ascending, -1 for descending");
+      // console.log("default value -1 is taken");
       n = -1;
     }
     arr.sort((p, q) => {
