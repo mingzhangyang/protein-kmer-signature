@@ -14,6 +14,8 @@ export default function setup_1() {
     let rect = canvas.getBoundingClientRect();
     let x = evt.clientX - rect.left;
     let y = evt.clientY - rect.top;
-    draw_1(ctx, {x: x, y: y});
+    requestAnimationFrame(() => {
+      draw_1(ctx, {x: x, y: y});
+    });
   });
 }

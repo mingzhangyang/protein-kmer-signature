@@ -1,5 +1,5 @@
 import {a, aa} from './aa.js';
-import {colorGradient1, colorGradient2, colorGradient3} from './colors.js';
+import {colorGradient1, colorGradient2, colorGradient3, colorGradient4} from './colors.js';
 
 export function draw_1(ctx, pos) {
   ctx.font = "20px Arial";
@@ -101,6 +101,45 @@ export function draw_3(ctx, pos) {
     ctx.fillStyle = "black";
     ctx.fillText(key, 800, pos.y - 120);
     ctx.fillText(value, 800, pos.y - 72);
+
+  }
+  ctx.restore();
+}
+
+export function draw_4(ctx, pos) {
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = "18px Arial";
+  ctx.save();
+
+  ctx.clearRect(0, 0, 1600, 1600);
+  ctx.translate(100, 100);
+  for (let i = 0; i < aa.length; i++) {
+    for (let j = 0; j < aa.length; j++) {
+      let key = aa[i] + aa[j];
+      let value = ctx.data.get(key);
+      ctx.fillStyle = colorGradient4.getColor(value).rgb();
+      ctx.fillRect(i * 2, j * 2, 22, 2);
+    }
+  }
+
+  if (pos.y > 100 && pos.y < 100 + 26 * 26 * 2 && pos.x > 100 && pos.x < 100 + 26 * 26 * 2) {
+    let m = Math.floor((pos.x - 100) / 2);
+    let n = Math.floor((pos.y - 100) / 2);
+    let key = aa[m] + aa[n];
+    let value = ctx.data.get(key);
+
+    ctx.font = "36px Arial";
+    ctx.translate(0, 0);
+    ctx.save();
+    ctx.fillStyle = "#DDD";
+    ctx.shadowBlur = 12;
+    ctx.shadowColor = colorGradient4.getColor(value).rgb();
+    ctx.fillRect(pos.x - 160, pos.y - 260, 120, 120);
+    ctx.restore();
+    ctx.fillStyle = "black";
+    ctx.fillText(key, pos.x - 100, pos.y - 220);
+    ctx.fillText(value, pos.x - 100, pos.y - 170);
 
   }
   ctx.restore();

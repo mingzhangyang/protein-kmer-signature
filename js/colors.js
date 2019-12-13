@@ -109,8 +109,8 @@ class ColorGradient {
 
 const colorGradient1 = new ColorGradient(Color.fromHex('#33ccff'), Color.fromHex('#ff0066'), [0, 2000]);
 const colorGradient2 = new ColorGradient(Color.fromHex('#33ccff'), Color.fromHex('#ff0066'), [0, 200]);
-const colorGradient3 = new ColorGradient(Color.fromHex('#33ccff'), Color.fromHex('#ff0066'), [0, 100]);
-const colorGradient4 = new ColorGradient(Color.fromHex('#33ccff'), Color.fromHex('#ff0066'), [0, 40]);
+const colorGradient3 = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), [0, 40]);
+const colorGradient4 = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), [0, 10]);
 
 export {
   Color,
