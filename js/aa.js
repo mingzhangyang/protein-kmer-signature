@@ -27,11 +27,20 @@ const a = [
   "Z",
 ];
 
-let aa = [];
+const aa = [];
 for (let i of a) {
   for (let j of a) {
     aa.push(i+j);
   }
 }
 
-export {a, aa};
+const aaa = [];
+for (let i of a) {
+  for (let j of a) {
+    for (let k of a) {
+      aaa.push(i+j+k);
+    }
+  }
+}
+
+export {a, aa, aaa};

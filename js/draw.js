@@ -1,4 +1,4 @@
-import {a, aa} from './aa.js';
+import {a, aa, aaa} from './aa.js';
 import {Color, ColorGradient, colorGradient4} from './colors.js';
 
 export function draw_1(ctx, pos) {
@@ -76,7 +76,6 @@ export function draw_2(ctx, pos) {
 export function draw_3(ctx, pos) {
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.font = '18px Arial';
   ctx.save();
 
   let vs = ctx.data.sorted();
@@ -85,37 +84,50 @@ export function draw_3(ctx, pos) {
 
   ctx.clearRect(0, 0, 1200, 1600);
   ctx.translate(100, 100);
-  for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < aa.length; j++) {
-      let key = a[i] + aa[j];
-      let value = ctx.data.get(key);
-      ctx.fillStyle = colorGradient.getColor(value).rgb();
-      ctx.fillRect(i * 26, j * 2, 24, 2);
-    }
-    ctx.fillStyle = '#000';
-    ctx.fillText(a[i], 26 * i + 12, -12);
+
+  let squareWidth = 6;
+  let spacing = 2;
+
+  for (let i = 0; i < aaa.length; i++) {
+    let c = i % 100;
+    let r = (i - c) / 100;
+    let value = ctx.data.get(aaa[i]);
+    ctx.fillStyle = colorGradient.getColor(value).rgb();
+    ctx.fillRect(c * (squareWidth + spacing), r * (squareWidth + spacing), squareWidth, squareWidth);
   }
 
-  if (pos.y > 100 && pos.y < 100 + 26 * 26 * 2 && pos.x > 100 && pos.x < 100 + 26 * 26) {
-    let m = Math.floor((pos.x - 100) / 26);
-    let n = Math.floor((pos.y - 100) / 2);
-    let key = a[m] + aa[n];
-    let value = ctx.data.get(key);
+  ctx.restore();
+
+  let bottom = Math.ceil(aaa.length / 100) * (squareWidth + spacing);
+  let right = 100 * (squareWidth + spacing);
+  if (pos.y > 100 && pos.y < 100 + bottom && pos.x > 100 && pos.x < 100 + right) {
+    let rr = (pos.y - 100) % (spacing + squareWidth);
+    let rc = (pos.x - 100) % (spacing + squareWidth);
+
+    if (rr > squareWidth || rc > squareWidth) {
+      return;
+    }
+
+    ctx.save();
+    let r = (pos.y - 100 - rr) / (squareWidth + spacing);
+    let c = (pos.x - 100 - rc) / (squareWidth + spacing);
+
+    let n = r * 100 + c;
+    let value = ctx.data.get(aaa[n]);
 
     ctx.font = '36px Arial';
-    ctx.translate(0, 0);
-    ctx.save();
+
     ctx.fillStyle = '#DDD';
     ctx.shadowBlur = 12;
     ctx.shadowColor = colorGradient.getColor(value).rgb();
-    ctx.fillRect(750, pos.y - 150, 100, 100);
-    ctx.restore();
-    ctx.fillStyle = 'black';
-    ctx.fillText(key, 800, pos.y - 120);
-    ctx.fillText(value, 800, pos.y - 72);
+    ctx.fillRect(960, pos.y - 50, 100, 100);
 
+    ctx.fillStyle = 'black';
+    ctx.fillText(aaa[n], 1010, pos.y-20);
+    ctx.fillText(value, 1010, pos.y+24);
+    ctx.restore();
   }
-  ctx.restore();
+
 }
 
 export function draw_4(ctx, pos) {

@@ -10,12 +10,24 @@ export default function setup_3(str=sample) {
 
 
   canvas.addEventListener("mousemove", evt => {
-    let ctx = canvas.getContext("2d");
-    let rect = canvas.getBoundingClientRect();
-    let x = evt.clientX - rect.left;
-    let y = evt.clientY - rect.top;
-    requestAnimationFrame(() => {
-      draw_3(ctx, {x: x, y: y});
-    });
+    update(canvas, evt);
+  });
+
+  canvas.addEventListener("mouseenter", evt => {
+    update(canvas, evt);
+  });
+
+  canvas.addEventListener("mouseleave", evt => {
+    update(canvas, evt);
+  });
+}
+
+function update(canvas, evt) {
+  let ctx = canvas.getContext("2d");
+  let rect = canvas.getBoundingClientRect();
+  let x = evt.clientX - rect.left;
+  let y = evt.clientY - rect.top;
+  requestAnimationFrame(() => {
+    draw_3(ctx, {x: x, y: y});
   });
 }
