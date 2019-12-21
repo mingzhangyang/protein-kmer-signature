@@ -11,7 +11,7 @@ export function draw_1(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   updateScale(ctx);
 
@@ -41,7 +41,7 @@ export function draw_2(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   updateScale(ctx);
 
@@ -89,7 +89,7 @@ export function draw_3(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   updateScale(ctx);
 
@@ -146,7 +146,7 @@ export function draw_4(ctx, pos) {
   ctx.font = '18px Arial';
   ctx.save();
 
-  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   updateScale(ctx);
 
