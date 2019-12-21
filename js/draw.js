@@ -1,5 +1,6 @@
 import {a, aa, aaa} from './aa.js';
 import {Color, ColorGradient, colorGradient4} from './colors.js';
+import {updateScale} from "./setupScale.js";
 
 export function draw_1(ctx, pos) {
   ctx.font = '20px Arial';
@@ -12,15 +13,7 @@ export function draw_1(ctx, pos) {
 
   ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
 
-  let r = window.devicePixelRatio;
-  if (ctx.devicePixelRatio < r) {
-    ctx.devicePixelRatio = r;
-    ctx.canvas.width = ctx.w * r;
-    ctx.canvas.height = ctx.h * r;
-    ctx.restore();
-    ctx.scale(r, r,);
-    ctx.save();
-  }
+  updateScale(ctx);
 
   ctx.translate(100, 80);
   for (let i = 0; i < a.length; i++) {
@@ -50,15 +43,7 @@ export function draw_2(ctx, pos) {
 
   ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
 
-  let r = window.devicePixelRatio;
-  if (ctx.devicePixelRatio < r) {
-    ctx.devicePixelRatio = r;
-    ctx.canvas.width = ctx.w * r;
-    ctx.canvas.height = ctx.h * r;
-    ctx.restore();
-    ctx.scale(r, r,);
-    ctx.save();
-  }
+  updateScale(ctx);
 
   ctx.translate(100, 100);
   for (let i = 0; i < a.length; i++) {
@@ -106,15 +91,7 @@ export function draw_3(ctx, pos) {
 
   ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
 
-  let r = window.devicePixelRatio;
-  if (ctx.devicePixelRatio < r) {
-    ctx.devicePixelRatio = r;
-    ctx.canvas.width = ctx.w * r;
-    ctx.canvas.height = ctx.h * r;
-    ctx.restore();
-    ctx.scale(r, r,);
-    ctx.save();
-  }
+  updateScale(ctx);
 
   ctx.translate(100, 100);
 
@@ -169,7 +146,10 @@ export function draw_4(ctx, pos) {
   ctx.font = '18px Arial';
   ctx.save();
 
-  ctx.clearRect(0, 0, 1600, 1600);
+  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+
+  updateScale(ctx);
+
   ctx.translate(100, 100);
   for (let i = 0; i < aa.length; i++) {
     for (let j = 0; j < aa.length; j++) {

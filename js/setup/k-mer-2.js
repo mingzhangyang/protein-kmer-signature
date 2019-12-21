@@ -1,18 +1,13 @@
 import parse from "../parser.js";
 import {sample} from "../../data/sample.js";
 import {draw_2} from "../draw.js";
+import {setupScale} from "../setupScale.js";
 
 export default function setup_2(str=sample) {
   let canvas = document.getElementById("2-mer-canvas");
   let ctx = canvas.getContext("2d");
 
-  ctx.w = canvas.clientWidth;
-  ctx.h = canvas.clientHeight;
-  ctx.devicePixelRatio = window.devicePixelRatio;
-
-  canvas.width = ctx.w * ctx.devicePixelRatio;
-  canvas.height = ctx.h * ctx.devicePixelRatio;
-  ctx.scale(ctx.devicePixelRatio, ctx.devicePixelRatio);
+  setupScale(ctx);
 
   ctx.data = parse(str, 2);
   draw_2(ctx, {y: 0});
