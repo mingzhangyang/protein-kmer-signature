@@ -5,6 +5,15 @@ import {draw_1} from "../draw.js";
 export default function setup_1(str=sample) {
   let canvas = document.getElementById("1-mer-canvas");
   let ctx = canvas.getContext("2d");
+
+  ctx.w = canvas.clientWidth;
+  ctx.h = canvas.clientHeight;
+  ctx.devicePixelRatio = window.devicePixelRatio;
+
+  canvas.width = ctx.w * ctx.devicePixelRatio;
+  canvas.height = ctx.h * ctx.devicePixelRatio;
+  ctx.scale(ctx.devicePixelRatio, ctx.devicePixelRatio);
+
   ctx.data = parse(str, 1);
   draw_1(ctx, {y: 0});
 

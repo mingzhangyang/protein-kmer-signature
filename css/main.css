@@ -99,4 +99,18 @@ canvas {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 30px;
+    display: block;
+    width: 1180px;
+}
+
+#1-mer-canvas {
+    height: 200px;
+}
+
+#2-mer-canvas {
+    height: 880px;
+}
+
+#3-mer-canvas {
+    height: 1560px;
 }

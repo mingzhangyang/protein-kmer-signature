@@ -10,7 +10,18 @@ export function draw_1(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, 1200, 200);
+  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+
+  let r = window.devicePixelRatio;
+  if (ctx.devicePixelRatio < r) {
+    ctx.devicePixelRatio = r;
+    ctx.canvas.width = ctx.w * r;
+    ctx.canvas.height = ctx.h * r;
+    ctx.restore();
+    ctx.scale(r, r,);
+    ctx.save();
+  }
+
   ctx.translate(100, 80);
   for (let i = 0; i < a.length; i++) {
     let v = ctx.data.get(a[i]);
@@ -37,7 +48,18 @@ export function draw_2(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, 1200, 880);
+  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+
+  let r = window.devicePixelRatio;
+  if (ctx.devicePixelRatio < r) {
+    ctx.devicePixelRatio = r;
+    ctx.canvas.width = ctx.w * r;
+    ctx.canvas.height = ctx.h * r;
+    ctx.restore();
+    ctx.scale(r, r,);
+    ctx.save();
+  }
+
   ctx.translate(100, 100);
   for (let i = 0; i < a.length; i++) {
     for (let j = 0; j < a.length; j++) {
@@ -82,7 +104,18 @@ export function draw_3(ctx, pos) {
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, 1200, 1600);
+  ctx.clearRect(0, 0, ctx.w * ctx.devicePixelRatio, ctx.h * ctx.devicePixelRatio);
+
+  let r = window.devicePixelRatio;
+  if (ctx.devicePixelRatio < r) {
+    ctx.devicePixelRatio = r;
+    ctx.canvas.width = ctx.w * r;
+    ctx.canvas.height = ctx.h * r;
+    ctx.restore();
+    ctx.scale(r, r,);
+    ctx.save();
+  }
+
   ctx.translate(100, 100);
 
   let squareWidth = 6;
