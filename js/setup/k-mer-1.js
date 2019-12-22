@@ -1,13 +1,10 @@
 import parse from "../parser.js";
 import {sample} from "../../data/sample.js";
 import {draw_1} from "../draw.js";
-import {setupScale} from "../setupScale.js";
 
 export default function setup_1(str=sample) {
   let canvas = document.getElementById("1-mer-canvas");
   let ctx = canvas.getContext("2d");
-
-  setupScale(ctx);
 
   ctx.data = parse(str, 1);
   draw_1(ctx, {y: 0});

@@ -7,12 +7,12 @@ export function setupScale(ctx) {
   ctx.scale(ctx.devicePixelRatio, ctx.devicePixelRatio);
 }
 
-export function updateScale(ctx) {
-  let r = window.devicePixelRatio;
-  if (ctx.devicePixelRatio < r) {
-    ctx.devicePixelRatio = r;
-    ctx.canvas.width = ctx.w * r;
-    ctx.canvas.height = ctx.h * r;
-    ctx.scale(r, r,);
-  }
-}
+// export function updateScale(ctx) {
+//   let r = window.devicePixelRatio;
+//   if (ctx.devicePixelRatio < r) {
+//     ctx.devicePixelRatio = r;
+//     ctx.canvas.width = ctx.w * r;
+//     ctx.canvas.height = ctx.h * r;
+//     ctx.scale(r, r,);
+//   }
+// }
