@@ -4,10 +4,10 @@ import setup_3 from './setup/k-mer-3.js';
 
 export default async function handleFile() {
   const file = this.files[0];
-  if (!file.name.toUpperCase().endsWith(".FASTA")) {
-    alert("An fasta file is expected.");
-    return;
-  }
+  // if (!file.name.toUpperCase().endsWith(".FASTA")) {
+  //   alert("An fasta file is expected.");
+  //   return;
+  // }
   try {
     let str = await file.text();
     setup_1(str);
