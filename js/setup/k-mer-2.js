@@ -5,6 +5,7 @@ import {draw_2} from "../draw.js";
 export default function setup_2(str=sample) {
   let canvas = document.getElementById("2-mer-canvas");
   let ctx = canvas.getContext("2d");
+
   ctx.data = parse(str, 2);
   draw_2(ctx, {y: 0});
 

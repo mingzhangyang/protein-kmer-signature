@@ -1,16 +1,20 @@
 import {a, aa, aaa} from './aa.js';
 import {Color, ColorGradient, colorGradient4} from './colors.js';
+import {setupScale} from "./setupScale.js";
 
 export function draw_1(ctx, pos) {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  setupScale(ctx);
+
   ctx.font = '20px Arial';
   ctx.textAlign = 'center';
-  ctx.save();
 
   let vs = ctx.data.sorted();
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, 1200, 200);
+  ctx.save();
   ctx.translate(100, 80);
   for (let i = 0; i < a.length; i++) {
     let v = ctx.data.get(a[i]);
@@ -28,16 +32,19 @@ export function draw_1(ctx, pos) {
 }
 
 export function draw_2(ctx, pos) {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  setupScale(ctx);
+
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.font = '18px Arial';
-  ctx.save();
 
   let vs = ctx.data.sorted();
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
+  ctx.save();
 
-  ctx.clearRect(0, 0, 1200, 880);
   ctx.translate(100, 100);
   for (let i = 0; i < a.length; i++) {
     for (let j = 0; j < a.length; j++) {
@@ -74,15 +81,18 @@ export function draw_2(ctx, pos) {
 }
 
 export function draw_3(ctx, pos) {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  setupScale(ctx);
+
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.save();
 
   let vs = ctx.data.sorted();
   let range = [vs[vs.length - 1][1], vs[0][1] + 10];
   let colorGradient = new ColorGradient(Color.fromHex('#aaccff'), Color.fromHex('#ff0066'), range);
 
-  ctx.clearRect(0, 0, 1200, 1600);
+  ctx.save();
   ctx.translate(100, 100);
 
   let squareWidth = 6;
@@ -131,12 +141,15 @@ export function draw_3(ctx, pos) {
 }
 
 export function draw_4(ctx, pos) {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  setupScale(ctx);
+
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.font = '18px Arial';
-  ctx.save();
 
-  ctx.clearRect(0, 0, 1600, 1600);
+  ctx.save();
   ctx.translate(100, 100);
   for (let i = 0; i < aa.length; i++) {
     for (let j = 0; j < aa.length; j++) {

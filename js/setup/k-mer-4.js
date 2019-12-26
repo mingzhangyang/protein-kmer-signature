@@ -8,7 +8,6 @@ export default function setup_4(str=sample) {
   ctx.data = parse(str, 4);
   draw_4(ctx, {y: 0});
 
-
   canvas.addEventListener("mousemove", evt => {
     let ctx = canvas.getContext("2d");
     let rect = canvas.getBoundingClientRect();
